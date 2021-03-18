@@ -1,0 +1,15 @@
+﻿@page "/"
+
+@using Blazor_Netflix.Models;
+@using Blazor_Netflix.Components;
+
+<h1>Movies</h1>
+
+<Row Title="Trending" FetchUrl="@Requests.Urls["fetchTrending"]" />
+<Row Title="Netflix Originals" FetchUrl="@Requests.Urls["fetchNetflixOriginals"]" />
+<Row Title="Top Rated" FetchUrl="@Requests.Urls["fetchTopRated"]" />
+<Row Title="Action Movies" FetchUrl="@Requests.Urls["fetchActionMovies"]" />
+<Row Title="Comedies" FetchUrl="@Requests.Urls["fetchComedyMovies"]" />
+<Row Title="Horror Movies" FetchUrl="@Requests.Urls["fetchHorrorMovies"]" />
+<Row Title="Romantic movies" FetchUrl="@Requests.Urls["fetchRomanceMovies"]" />
+<Row Title="Documentaries" FetchUrl="@Requests.Urls["fetchDocumentaries"]" />

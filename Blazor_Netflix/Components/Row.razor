@@ -1,0 +1,34 @@
+﻿@inject HttpClient Http
+@using System.Text.Json
+@using System.Text.Json.Serialization
+@using Blazor_Netflix.Models
+
+<div class="row">
+    <h2>@Title</h2>
+    <div class="row__posters">
+        @if (movies == null)
+        {
+            <p><em>Loading...</em></p>
+        }
+        else
+        {
+            @foreach (var movie in movies)
+            {
+                <img class="row__poster" src="@movie.Full_Poster_Path" alt="@movie.Name" />
+            }
+        }
+    </div>
+</div>
+
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await Http.GetFromJsonAsync<MovieDBAPiResponse>(FetchUrl);
+        if (response.results != null)
+        {
+            movies = response.results;
+        }
+    }
+}
+

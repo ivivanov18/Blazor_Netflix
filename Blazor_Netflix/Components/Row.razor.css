@@ -1,0 +1,14 @@
+﻿.row__posters {
+    display: flex;
+    flex-direction: row;
+}
+
+.row__poster {
+    object-fit: contain;
+    width: 100%;
+    max-height: 200px;
+}
+
+h2 {
+    color: red;
+}
