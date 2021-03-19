@@ -14,7 +14,7 @@
         {
             @foreach (var movie in movies)
             {
-                <img class="row__poster" src="@movie.Full_Poster_Path" alt="@movie.Name" />
+                <img class="row__poster @LargeClassName" src="@movie.Full_Poster_Path" alt="@movie.Name" />
             }
         }
     </div>

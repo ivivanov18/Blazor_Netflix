@@ -8,6 +8,10 @@ namespace Blazor_Netflix.Components
     {
         [Parameter] public string Title { get; set; }
         [Parameter] public string FetchUrl { get; set; }
+        [Parameter] public bool IsLargeRow { get; set; }
+        
         private List<Movie> movies;
+
+        private string LargeClassName => IsLargeRow ? "row__posterLarge" : string.Empty;
     }
 }
