@@ -1,0 +1,29 @@
+﻿@inject HttpClient Http
+
+@using Blazor_Netflix.Models
+
+<header class="banner" style="background-image:url(@BackgroundImgUrl)">
+    <div class="banner__content">
+        <h1>@DisplayMovie?.Name</h1>
+        <div class="banner_buttons">
+            <button class="banner_button">Play</button>
+            <button class="banner_button">My List</button>
+        </div>
+        <h1 class="banner__description">@DisplayMovie?.Overview</h1>
+    </div>
+</header>
+
+
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await Http.GetFromJsonAsync<MovieDBAPiResponse>(MovieCategoryFetchUrl);
+        if (response.results != null && response.results.Count > 0)
+        {
+            var rnd = new Random();
+            int rndMovieNumber = rnd.Next(response.results.Count);
+            DisplayMovie = response.results[rndMovieNumber];
+        }
+    }
+}

@@ -3,7 +3,8 @@
 @using Blazor_Netflix.Models;
 @using Blazor_Netflix.Components;
 
-<h1>Movies</h1>
+
+<Banner MovieCategoryFetchUrl="@Requests.Urls["fetchNetflixOriginals"]" />
 
 <Row Title="Trending" FetchUrl="@Requests.Urls["fetchTrending"]" IsLargeRow="true"/>
 <Row Title="Netflix Originals" FetchUrl="@Requests.Urls["fetchNetflixOriginals"]" />
